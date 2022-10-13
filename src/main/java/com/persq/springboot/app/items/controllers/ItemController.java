@@ -21,13 +21,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.RequestHeader;
-//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.persq.springboot.app.commons.models.entity.Producto;
 import com.persq.springboot.app.items.models.Item;
-import com.persq.springboot.app.items.models.Producto;
+
 import com.persq.springboot.app.items.models.service.ItemService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -55,11 +54,6 @@ public class ItemController {
 	public List<Item> listar(){
 		return itemService.findAll();
 	}
-//	@GetMapping("/listar")
-//	public List<Item> listar(@RequestParam(name = "nombre", required = false) String nombre,
-//			@RequestHeader(name = "token-request", required = false) String token) {
-//		return itemService.findAll();
-//	}
 
 	@GetMapping("/ver/{id}/cantidad/{cantidad}")
 	public Item detalle(@PathVariable Long id, @PathVariable Integer cantidad) {

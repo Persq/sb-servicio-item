@@ -13,8 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.persq.springboot.app.commons.models.entity.Producto;
 import com.persq.springboot.app.items.models.Item;
-import com.persq.springboot.app.items.models.Producto;
 
 @Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
@@ -38,11 +38,10 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public Producto save(Producto producto) {
-		HttpEntity<Producto> body = new HttpEntity<Producto>(producto);
+		HttpEntity<Producto> body = new HttpEntity<>(producto);
 		
 		ResponseEntity<Producto> response = clienteRest.exchange("http://servicio-productos/crear", HttpMethod.POST, body, Producto.class);
-		Producto productoResponse = response.getBody();
-		return productoResponse;
+		return response.getBody();
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class ItemServiceImpl implements ItemService {
 		Map<String, String> pathVariables = new HashMap<>();
 		pathVariables.put("id", id.toString());
 		
-		HttpEntity<Producto> body= new HttpEntity<Producto>(producto);
+		HttpEntity<Producto> body= new HttpEntity<>(producto);
 		ResponseEntity<Producto> response = clienteRest.exchange("http://servicio-productos/editar/{id}", 
 				HttpMethod.PUT, body, Producto.class, pathVariables);
 		

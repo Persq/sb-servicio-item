@@ -1,5 +1,7 @@
 package com.persq.springboot.app.items.models;
 
+import com.persq.springboot.app.commons.models.entity.Producto;
+
 public class Item {
 	private Producto producto;
 	private Integer cantidad;

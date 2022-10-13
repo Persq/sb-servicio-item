@@ -2,8 +2,8 @@ package com.persq.springboot.app.items.models.service;
 
 import java.util.List;
 
+import com.persq.springboot.app.commons.models.entity.Producto;
 import com.persq.springboot.app.items.models.Item;
-import com.persq.springboot.app.items.models.Producto;
 
 public interface ItemService {
 
